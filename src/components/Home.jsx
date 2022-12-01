@@ -16,7 +16,7 @@ function Home(props) {
     };
 
     const getBooks = (searchString, startIndex = 0) => {
-      const url = `${searchOptions.api}${searchString}&startIndex=${startIndex}&maxResults=20&key=`
+      const url = `${searchOptions.api}${searchString}&startIndex=${startIndex}&maxResults=20&key=AIzaSyAJmrd62hr4IQKa4O5fZJrLnh7tjANMEyg`
       console.log(url)
       fetch(url)
       .then(res => {
@@ -80,11 +80,13 @@ function Home(props) {
           {/* Putting the container class outside the map made it work better */}
           <div className="container">
             {books.map(book => ( 
-              <SearchResults 
-                book={book}
-                addReadBookToLog={addReadBookToLog}
-                addWantToReadLog={addWantToReadLog} 
-              />    
+              <div key={book.id}>
+                <SearchResults 
+                  book={book}
+                  addReadBookToLog={addReadBookToLog}
+                  addWantToReadLog={addWantToReadLog} 
+                />    
+              </div>
             ))}
           </div>
           <button className="prevNextButtons" onClick={previousResults} display={(startIndex === 0) ? "hidden" : "block"}>Previous</button>
