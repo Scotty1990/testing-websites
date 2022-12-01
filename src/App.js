@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+// import React, { useContext } from 'react'
+import React from 'react'
 
-function App() {
+// import DataProvider from './components/DataProvider';
+import { DataContext } from './components/DataContext';
+// import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css';
+import RandBookSearch from './components/RandBookSearch';
+import { Route } from 'react-router-dom';
+import Nav from './components/Nav';
+import Home from './components/Home';
+import Musings from './components/Musings';
+import BooksIveRead from './components/BooksIveRead';
+/* used npm install semantic-ui-react semantic-ui-css to get the menu
+   buttons working, then noticed that it made my webpage look nicer
+   this also makes the menu buttons for the subjects work */
+import 'semantic-ui-css/semantic.min.css'
+import WantToRead from './components/WantToRead';
+import { useState } from 'react';
+
+
+
+const App = () => {
+  const [readBooks, setReadBooks] = useState([])
+  const [willRead, setWillRead] = useState([])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <a href="/">My Book App</a>
       </header>
+      <div>
+        <Nav />
+        {/* comment so I can see if that works */}
+      </div>
+      <main className="App">
+        <DataContext.Provider value={{ readBooks, setReadBooks, willRead, setWillRead }}>
+          <Route path="/" exact component={Home}/>
+          <Route path="/randombook" exact component={RandBookSearch}></Route>
+          <Route path="/musings" exact component={Musings}></Route>
+          <Route path="/booksiveread" exact component={BooksIveRead}></Route>
+          <Route path="/wanttoread" exact component={WantToRead}></Route>
+        </DataContext.Provider>
+      </main>
     </div>
   );
 }
+
 
 export default App;

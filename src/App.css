@@ -2,37 +2,203 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@media screen and (max-width: 540px) {
+  .view {
+      width: 400px;
+      position: absolute;
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  #wantToRead {
+    float: left;
+    margin: 5px;
+    /* position: absolute; */
+    /* bottom: 0px;  */
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media screen and (min-width: 540px) and (max-width: 780px) {
+  .view {
+      width: 600px;
+  }
+}
+
+#navBar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 15px;
+  display: grid;
+  grid-template-columns: repeat(1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background-color: blanchedalmond;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  line-height: 1.4em;
+  color: rgba(0,0,0,.87);
+}
+
+/* Musings component */
+
+#musings-form {
+  margin: 5px;
+}
+
+
+.musings-container {
+  margin: 10px;
+}
+
+#musingsDiv {
+  margin-top: 200px;
+}
+
+#musings-intro {
+  font-size: 15px;
+  width: auto;
+}
+
+#musingsMap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+}
+
+/* .container-subjects {
+  position: relative;
+  display: inline-block;
+} */
+
+/* Home component */
+
+.container {
+  position: relative;
+  top: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+}
+
+.search-bar {
+  position: relative;
+  top: 190px;
+  margin: 10px 0 8px 0;
+}
+
+.prevNextButtons {
+  position: relative;
+  top: 200px;
+  margin-top: 10px;
+}
+.books {
+  height: 250px;
+}
+
+#book-title {
+  font-size: 16px;
+}
+
+/* SearchResults component within Home component */
+
+.logButton {
+  margin: 5px;
+}
+
+.wTRButton {
+  margin-bottom: 5px;
+}
+
+/* Random Books Generator component */
+
+a {
+  color: #4183c4;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  text-decoration: none;
+}
+
+#dropdownMenu {
+  margin-top: 200px;
+  margin-left: 230px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* margin: auto; */
 }
 
-.App-link {
-  color: #61dafb;
+.menu {
+  margin-top: 20px;
+  width: 987px;
+}
+/* 
+div.ui.menu {
+  margin-top: 20px;
+  margin: auto;
+  top: 20px;
+} */
+
+#dropdownMenuContainer{
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#img-space {
+  margin-top: 20px;
+}
+
+.bookDescription {
+  margin: auto;
+}
+
+li:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
+
+/* Books I've Read */
+
+#bIRDiv {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  top: 0;
+}
+
+.bIRTitle {
+  font-size: large;
+  margin-top: 20px;
+}
+
+.bIRAuthor {
+  font-size: large;
+  margin: 5px;
+}
+
+#bIRText {
+  font-size: 20px;
+}
+
+/* Want to Read */
+
+#wantToRead {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  top: 90px;
+}
+
+#wTRHeader{
+  margin-top: 30px;
+}
+
+.wTRTitle {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.wTRAuthor {
+  font-size: large;
+  margin: 5px;
 }
